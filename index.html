@@ -6,7 +6,7 @@
     <title>MGC — Movie Grading Consensus™ Mainframe</title>
     <style>
         body {
-            background-color: #111111;
+            background-color: #0d0d0d;
             color: #E0E0E0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -16,7 +16,7 @@
             align-items: center;
         }
         .container {
-            max-width: 900px;
+            max-width: 950px;
             width: 100%;
         }
         .header {
@@ -44,62 +44,110 @@
             color: #AAAAAA;
             margin: 20px 0 0 0;
         }
+        
+        
         .tier-section {
-            background-color: #161616;
-            border: 1px solid #222222;
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+            display: none; 
         }
+        
+        
+        #sector-ms { background: linear-gradient(135deg, #1c1801 0%, #0d0d0d 100%); border-left: 5px solid #FFD700; }
+        #sector-au { background: linear-gradient(135deg, #141416 0%, #0d0d0d 100%); border-left: 5px solid #C0C0C0; }
+        #sector-xf { background: linear-gradient(135deg, #02152b 0%, #0d0d0d 100%); border-left: 5px solid #0073FF; }
+        
+        
+        #sector-vf { 
+            background: 
+                linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 90%), 
+                linear-gradient(135deg, #FF5C00 0%, #FF2E00 100%); 
+            border-left: 5px solid #FF2E00; 
+        }
+        
+        #sector-f { 
+    background: linear-gradient(135deg, #6BDCFF 0%, #6BDCFF 50%, #1239FF 100%); 
+    border-left: 5px solid #1239FF; 
+}
+        #sector-g { background: linear-gradient(135deg, #1a160d 0%, #0d0d0d 100%); border-left: 5px solid #DED29E; }
+        #sector-tech { background: linear-gradient(135deg, #011c18 0%, #0d0d0d 100%); border-left: 5px solid #00FFCC; }
+        #sector-po { background: linear-gradient(135deg, #240404 0%, #0d0d0d 100%); border-left: 5px solid #FF3333; }
+
         .tier-title {
-            font-size: 1.4rem;
-            margin: 0 0 15px 0;
+            font-size: 1.5rem;
+            margin: 0 0 20px 0;
             display: flex;
             align-items: center;
             gap: 10px;
+            font-weight: 700;
         }
-        .ms-glow { color: #FFD700; text-shadow: 0 0 12px rgba(255, 215, 0, 0.3); }
-        .au-glow { color: #C0C0C0; text-shadow: 0 0 12px rgba(192, 192, 192, 0.3); }
-        .xf-glow { color: #0073FF; text-shadow: 0 0 12px rgba(0, 115, 255, 0.3); }
-        .vf-glow { color: #FF8C00; text-shadow: 0 0 12px rgba(255, 140, 0, 0.3); }
-        .f-glow { color: #A8E6CF; text-shadow: 0 0 12px rgba(168, 230, 207, 0.3); }
-        .g-glow { color: #DED29E; text-shadow: 0 0 12px rgba(222, 210, 158, 0.3); }
-        .c-glow { color: #00FFCC; text-shadow: 0 0 12px rgba(0, 255, 204, 0.3); }
-        .po-glow { color: #FF3333; text-shadow: 0 0 12px rgba(255, 51, 51, 0.3); }
         
-        .file-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        
+        .ms-glow { color: #FFD700; text-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
+        .au-glow { color: #E0E0E0; text-shadow: 0 0 15px rgba(224, 224, 224, 0.4); }
+        .xf-glow { color: #3399FF; text-shadow: 0 0 15px rgba(51, 153, 255, 0.4); }
+        .vf-glow { color: #FFFFFF; text-shadow: 0 0 15px rgba(255, 255, 255, 0.6); } /* White text for perfect contrast on orange background */
+        .f-glow { color: #B3F0D8; text-shadow: 0 0 15px rgba(179, 240, 216, 0.4); }
+        .g-glow { color: #EADFA8; text-shadow: 0 0 15px rgba(234, 223, 168, 0.4); }
+        .tech-glow { color: #33FFCC; text-shadow: 0 0 15px rgba(51, 255, 204, 0.4); }
+        .po-glow { color: #FF5555; text-shadow: 0 0 15px rgba(255, 85, 85, 0.4); }
+        
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
         }
-        .file-item {
-            padding: 10px 15px;
-            border-bottom: 1px solid #222222;
+        .movie-card {
+            background-color: rgba(20, 20, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 20px;
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            align-items: center;
-        }
-        .file-item:last-child {
-            border-bottom: none;
-        }
-        .file-link {
-            color: #00C8FF;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s ease;
+            backdrop-filter: blur(4px);
         }
-        .file-link:hover {
-            color: #00FFFF;
+        
+        #sector-vf .movie-card {
+            background-color: rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        .movie-card:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 200, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+        }
+        #sector-vf .movie-card:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-color: #FFFFFF;
+        }
+        .movie-title {
+            color: #FFFFFF;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+        }
+        .movie-card:hover .movie-title {
+            color: #00C8FF;
+        }
+        #sector-vf .movie-card:hover .movie-title {
+            color: #FFFFFF;
             text-decoration: underline;
         }
-        .placeholder-text {
-            color: #555555;
-            font-style: italic;
+        .movie-meta {
+            font-size: 0.85rem;
+            color: #999999;
+            line-height: 1.5;
         }
-        .file-meta {
-            font-size: 0.9rem;
-            color: #666666;
+        #sector-vf .movie-meta {
+            color: #EEEEEE;
         }
     </style>
 </head>
@@ -108,104 +156,58 @@
 <div class="container">
     <div class="header">
         <h1>Movie Grading Consensus™</h1>
-        <div class="lens-badge">🏛 SOVEREIGN NUMISMATIC FILM REGISTRY // 5X LENS REPORT</div>
+        <div class="lens-badge">🏛 SOVEREIGN NUMISMATIC FILM REGISTRY // AUTOMATED PIPELINE</div>
         <p class="description">
             Examining cinema like uncirculated coinage. Free from corporate grade inflation, tracking parameters are forged under rigorous community appellate review.
         </p>
     </div>
 
-    <!-- MINT STATE DIVISION -->
-    <div class="tier-section">
-        <h2 class="tier-title ms-glow">💎 MINT STATE DIVISION (MS-60 to MS-69)</h2>
-        <ul class="file-list">
-            <li class="file-item">
-                <a class="file-link" href="mint-state/district9.html">District 9 (2009)</a>
-                <span class="file-meta">MGC MS-67 Choice Gem Specimen</span>
-            </li>
-            <li class="file-item">
-                <span class="placeholder-text">[Queue Unlocked for Incoming MS Coal Stocks]</span>
-                <span class="file-meta">Vorkuta Sector</span>
-            </li>
-        </ul>
-    </div>
-
-    <!-- ABOUT UNCIRCULATED DIVISION -->
-    <div class="tier-section">
-        <h2 class="tier-title au-glow">🥈 ABOUT UNCIRCULATED REGISTRY (AU-50 to AU-58)</h2>
-        <ul class="file-list">
-            <li class="file-item">
-                <a class="file-link" href="about-uncirculated/easternpromises.html">Eastern Promises (2007)</a>
-                <span class="file-meta">MGC AU-58 Choice About Uncirculated</span>
-            </li>
-        </ul>
-    </div>
-
-    <!-- EXTREMELY FINE DIVISION -->
-    <div class="tier-section">
-        <h2 class="tier-title xf-glow">🎬 EXTREMELY FINE REGISTER (XF-40 to XF-45)</h2>
-        <ul class="file-list">
-            <li class="file-item">
-                <span class="placeholder-text">[Lower Court Docket Pipeline Ready]</span>
-                <span class="file-meta">Slots Open</span>
-            </li>
-        </ul>
-    </div>
-
-    <!-- VERY FINE DIVISION -->
-    <div class="tier-section">
-        <h2 class="tier-title vf-glow">🏎 VERY FINE REGISTER (VF-20 to VF-37)</h2>
-        <ul class="file-list">
-            <li class="file-item">
-                <a class="file-link" href="very-fine/chariotsoffire.html">Chariots of Fire (1981)</a>
-                <span class="file-meta">MGC VF-37 Historical Correction</span>
-            </li>
-        </ul>
-    </div>
-
-    <!-- FINE DIVISION -->
-    <div class="tier-section">
-        <h2 class="tier-title f-glow">📜 FINE REGISTER (F-12 to F-15)</h2>
-        <ul class="file-list">
-            <li class="file-item">
-                <span class="placeholder-text">[Circulated Tier Registry Queue Open]</span>
-                <span class="file-meta">F-12 Slots</span>
-            </li>
-        </ul>
-    </div>
-
-    <!-- GOOD DIVISION -->
-    <div class="tier-section">
-        <h2 class="tier-title g-glow">🪵 GOOD REGISTER (G-4 to G-6)</h2>
-        <ul class="file-list">
-            <li class="file-item">
-                <span class="placeholder-text">[Heavily Circulated Asset Rows Open]</span>
-                <span class="file-meta">G-4 Slots</span>
-            </li>
-        </ul>
-    </div>
-
-  <!-- BASAL STATE DIVISION -->
-    <div class="tier-section">
-        <h2 class="tier-title po-glow">🚨 PO-1 BASAL STATE FLOOR</h2>
-        <ul class="file-list">
-            <li class="file-item">
-                <a class="file-link" href="basal-state/nailgunmassacre.html">Nail Gun Massacre (1985)</a>
-                <span class="file-meta">MGC P-1 Structural Corrosion</span>
-            </li>
-        </ul>
-    </div>
-
-  <!-- TECHNICAL DIVISION -->
-    <div class="tier-section">
-        <h2 class="tier-title c-glow">🛠🎛 TECHNICAL DESIGNATION REGISTER (C-70)</h2>
-        <ul class="file-list">
-            <li class="file-item">
-                <a class="file-link" href="technical/speedracer.html">Speed Racer (2008)</a>
-                <span class="file-meta">MGC C-70 Top Pop Color Palette</span>
-            </li>
-        </ul>
-    </div>
+    
+    <div id="sector-ms" class="tier-section"><h2 class="tier-title ms-glow">💎 MINT STATE DIVISION (MS-60 to MS-69)</h2><div class="card-grid" id="grid-ms"></div></div>
+    <div id="sector-au" class="tier-section"><h2 class="tier-title au-glow">🥈 ABOUT UNCIRCULATED REGISTRY (AU-50 to AU-58)</h2><div class="card-grid" id="grid-au"></div></div>
+    <div id="sector-xf" class="tier-section"><h2 class="tier-title xf-glow">🎬 EXTREMELY FINE REGISTER (XF-40 to XF-45)</h2><div class="card-grid" id="grid-xf"></div></div>
+    <div id="sector-vf" class="tier-section"><h2 class="tier-title vf-glow">🏎 VERY FINE REGISTER (VF-20 to VF-37)</h2><div class="card-grid" id="grid-vf"></div></div>
+    <div id="sector-f" class="tier-section"><h2 class="tier-title f-glow">📜 FINE REGISTER (F-12 to F-15)</h2><div class="card-grid" id="grid-f"></div></div>
+    <div id="sector-g" class="tier-section"><h2 class="tier-title g-glow">🪵 GOOD REGISTER (G-4 to G-6)</h2><div class="card-grid" id="grid-g"></div></div>
+    <div id="sector-tech" class="tier-section"><h2 class="tier-title tech-glow">🛠🎛 TECHNICAL DESIGNATION REGISTER (C-70)</h2><div class="card-grid" id="grid-tech"></div></div>
+    <div id="sector-po" class="tier-section"><h2 class="tier-title po-glow">🚨 PO-1 BASAL STATE FLOOR</h2><div class="card-grid" id="grid-po"></div></div>
 </div>
+
+<script>
+    
+    const mgcInventory = [
+        { title: "District 9 (2009)", path: "ms/district9.html", tier: "ms", meta: "MGC MS-67 Choice Gem Specimen" },
+        { title: "Interstellar (2014)", path: "ms/interstellar.html", tier: "ms", meta: "Under Active Appellate Inquest" },
+        { title: "Eastern Promises (2007)", path: "au/easternpromises.html", tier: "au", meta: "MGC AU-58 Choice About Uncirculated" },
+        { title: "River's Edge (1986)", path: "xf/riversedge.html", tier: "xf", meta: "MGC XF-45 Choice Extremely Fine" },
+        { title: "Rocky IV (1985)", path: "xf/rocky4.html", tier: "xf", meta: "MGC XF-40 Extremely Fine Specimen" },
+        { title: "Chariots of Fire (1981)", path: "vf/chariotsoffire.html", tier: "vf", meta: "MGC VF-37 Historical Correction" },
+        { title: "High Risk (1981)", path: "f/highrisk.html", tier: "f", meta: "MGC F-12 Circulated Fine" },
+        { title: "The Squeeze (1987)", path: "g/thesqueeze.html", tier: "g", meta: "MGC G-4 Heavily Circulated Asset" },
+        { title: "Nail Gun Massacre (1985)", path: "po/nailgunmassacre.html", tier: "po", meta: "MGC P-1 Structural Corrosion" },
+        { title: "Speed Racer (2008)", path: "tech/speedracer.html", tier: "tech", meta: "MGC C-70 Top Pop Color Palette" }
+    ];
+
+    
+    mgcInventory.forEach(movie => {
+        const sector = document.getElementById(`sector-${movie.tier}`);
+        const grid = document.getElementById(`grid-${movie.tier}`);
+        
+        if (sector && grid) {
+            sector.style.display = "block"; 
+            
+            
+            const card = document.createElement("a");
+            card.className = "movie-card";
+            card.href = movie.path;
+            card.innerHTML = `
+                <div class="movie-title">${movie.title}</div>
+                <div class="movie-meta">${movie.meta}</div>
+            `;
+            grid.appendChild(card);
+        }
+    });
+</script>
 
 </body>
 </html>
