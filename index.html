@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MGC — Movie Grading Consensus™ Mainframe</title>
+    <style>
+        body {
+            background-color: #111111;
+            color: #E0E0E0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #222222;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        h1 {
+            color: #FFFFFF;
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .lens-badge {
+            color: #00C8FF;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+            font-size: 1.1rem;
+        }
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #AAAAAA;
+            margin: 20px 0 0 0;
+        }
+        .tier-section {
+            background-color: #161616;
+            border: 1px solid #222222;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        .tier-title {
+            font-size: 1.4rem;
+            margin: 0 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .ms-glow { color: #FFD700; text-shadow: 0 0 12px rgba(255, 215, 0, 0.3); }
+        .au-glow { color: #C0C0C0; text-shadow: 0 0 12px rgba(192, 192, 192, 0.3); }
+        .xf-glow { color: #0073FF; text-shadow: 0 0 12px rgba(0, 115, 255, 0.3); }
+        .vf-glow { color: #FF8C00; text-shadow: 0 0 12px rgba(255, 140, 0, 0.3); }
+        .f-glow { color: #A8E6CF; text-shadow: 0 0 12px rgba(168, 230, 207, 0.3); }
+        .g-glow { color: #DED29E; text-shadow: 0 0 12px rgba(222, 210, 158, 0.3); }
+        .c-glow { color: #00FFCC; text-shadow: 0 0 12px rgba(0, 255, 204, 0.3); }
+        .po-glow { color: #FF3333; text-shadow: 0 0 12px rgba(255, 51, 51, 0.3); }
+        
+        .file-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .file-item {
+            padding: 10px 15px;
+            border-bottom: 1px solid #222222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .file-item:last-child {
+            border-bottom: none;
+        }
+        .file-link {
+            color: #00C8FF;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .file-link:hover {
+            color: #00FFFF;
+            text-decoration: underline;
+        }
+        .placeholder-text {
+            color: #555555;
+            font-style: italic;
+        }
+        .file-meta {
+            font-size: 0.9rem;
+            color: #666666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Movie Grading Consensus™</h1>
+        <div class="lens-badge">🏛 SOVEREIGN NUMISMATIC FILM REGISTRY // 5X LENS REPORT</div>
+        <p class="description">
+            Examining cinema like uncirculated coinage. Free from corporate grade inflation, tracking parameters are forged under rigorous community appellate review.
+        </p>
+    </div>
+
+    <!-- MINT STATE DIVISION -->
+    <div class="tier-section">
+        <h2 class="tier-title ms-glow">💎 MINT STATE DIVISION (MS-60 to MS-69)</h2>
+        <ul class="file-list">
+            <li class="file-item">
+                <a class="file-link" href="mint-state/district9.html">District 9 (2009)</a>
+                <span class="file-meta">MGC MS-67 Choice Gem Specimen</span>
+            </li>
+            <li class="file-item">
+                <span class="placeholder-text">[Queue Unlocked for Incoming MS Coal Stocks]</span>
+                <span class="file-meta">Vorkuta Sector</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ABOUT UNCIRCULATED DIVISION -->
+    <div class="tier-section">
+        <h2 class="tier-title au-glow">🥈 ABOUT UNCIRCULATED REGISTRY (AU-50 to AU-58)</h2>
+        <ul class="file-list">
+            <li class="file-item">
+                <a class="file-link" href="about-uncirculated/easternpromises.html">Eastern Promises (2007)</a>
+                <span class="file-meta">MGC AU-58 Choice About Uncirculated</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- EXTREMELY FINE DIVISION -->
+    <div class="tier-section">
+        <h2 class="tier-title xf-glow">🎬 EXTREMELY FINE REGISTER (XF-40 to XF-45)</h2>
+        <ul class="file-list">
+            <li class="file-item">
+                <span class="placeholder-text">[Lower Court Docket Pipeline Ready]</span>
+                <span class="file-meta">Slots Open</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- VERY FINE DIVISION -->
+    <div class="tier-section">
+        <h2 class="tier-title vf-glow">🏎 VERY FINE REGISTER (VF-20 to VF-37)</h2>
+        <ul class="file-list">
+            <li class="file-item">
+                <a class="file-link" href="very-fine/chariotsoffire.html">Chariots of Fire (1981)</a>
+                <span class="file-meta">MGC VF-37 Historical Correction</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- FINE DIVISION -->
+    <div class="tier-section">
+        <h2 class="tier-title f-glow">📜 FINE REGISTER (F-12 to F-15)</h2>
+        <ul class="file-list">
+            <li class="file-item">
+                <span class="placeholder-text">[Circulated Tier Registry Queue Open]</span>
+                <span class="file-meta">F-12 Slots</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- GOOD DIVISION -->
+    <div class="tier-section">
+        <h2 class="tier-title g-glow">🪵 GOOD REGISTER (G-4 to G-6)</h2>
+        <ul class="file-list">
+            <li class="file-item">
+                <span class="placeholder-text">[Heavily Circulated Asset Rows Open]</span>
+                <span class="file-meta">G-4 Slots</span>
+            </li>
+        </ul>
+    </div>
+
+  <!-- BASAL STATE DIVISION -->
+    <div class="tier-section">
+        <h2 class="tier-title po-glow">🚨 PO-1 BASAL STATE FLOOR</h2>
+        <ul class="file-list">
+            <li class="file-item">
+                <a class="file-link" href="basal-state/nailgunmassacre.html">Nail Gun Massacre (1985)</a>
+                <span class="file-meta">MGC P-1 Structural Corrosion</span>
+            </li>
+        </ul>
+    </div>
+
+  <!-- TECHNICAL DIVISION -->
+    <div class="tier-section">
+        <h2 class="tier-title c-glow">🛠🎛 TECHNICAL DESIGNATION REGISTER (C-70)</h2>
+        <ul class="file-list">
+            <li class="file-item">
+                <a class="file-link" href="technical/speedracer.html">Speed Racer (2008)</a>
+                <span class="file-meta">MGC C-70 Top Pop Color Palette</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
