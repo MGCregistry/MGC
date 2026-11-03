@@ -6,14 +6,16 @@
     <title>MGC — Movie Grading Consensus™ Mainframe</title>
     <style>
         body {
-            background-color: #0d0d0d;
-            color: #E0E0E0;
+            background: linear-gradient(180deg, #F9FAFB 0%, #FAFAF7 50%, #FCFAF4 100%);
+            background-attachment: fixed;
+            color: #111111;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
         }
         .container {
             max-width: 950px;
@@ -21,79 +23,113 @@
         }
         .header {
             text-align: center;
-            border-bottom: 2px solid #222222;
+            border-bottom: 2px solid rgba(0,0,0,0.06);
             padding-bottom: 30px;
             margin-bottom: 40px;
         }
         h1 {
-            color: #FFFFFF;
+            color: #000000;
             font-size: 2.5rem;
             margin: 0 0 10px 0;
             letter-spacing: 1px;
             text-transform: uppercase;
+            font-weight: 800;
         }
         .lens-badge {
-            color: #00C8FF;
+            color: #D13500;
             font-weight: bold;
-            text-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
             font-size: 1.1rem;
+            letter-spacing: 1px;
         }
         .description {
             font-size: 1.1rem;
             line-height: 1.6;
-            color: #AAAAAA;
+            color: #444444;
             margin: 20px 0 0 0;
         }
         
         
         .tier-section {
-            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+            margin-bottom: 35px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
             display: none; 
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
-        
-        
-        #sector-ms { background: linear-gradient(135deg, #1c1801 0%, #0d0d0d 100%); border-left: 5px solid #FFD700; }
-        #sector-au { background: linear-gradient(135deg, #141416 0%, #0d0d0d 100%); border-left: 5px solid #C0C0C0; }
-        #sector-xf { background: linear-gradient(135deg, #02152b 0%, #0d0d0d 100%); border-left: 5px solid #0073FF; }
-        
-        
-        #sector-vf { 
-            background: 
-                linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 90%), 
-                linear-gradient(135deg, #FF5C00 0%, #FF2E00 100%); 
-            border-left: 5px solid #FF2E00; 
-        }
-        
-        #sector-f { 
-    background: linear-gradient(135deg, #6BDCFF 0%, #6BDCFF 50%, #1239FF 100%); 
-    border-left: 5px solid #1239FF; 
-}
-        #sector-g { background: linear-gradient(135deg, #1a160d 0%, #0d0d0d 100%); border-left: 5px solid #DED29E; }
-        #sector-tech { background: linear-gradient(135deg, #011c18 0%, #0d0d0d 100%); border-left: 5px solid #00FFCC; }
-        #sector-po { background: linear-gradient(135deg, #240404 0%, #0d0d0d 100%); border-left: 5px solid #FF3333; }
 
         .tier-title {
             font-size: 1.5rem;
-            margin: 0 0 20px 0;
+            margin: 0 0 25px 0;
             display: flex;
             align-items: center;
             gap: 10px;
-            font-weight: 700;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
         
         
-        .ms-glow { color: #FFD700; text-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
-        .au-glow { color: #E0E0E0; text-shadow: 0 0 15px rgba(224, 224, 224, 0.4); }
-        .xf-glow { color: #3399FF; text-shadow: 0 0 15px rgba(51, 153, 255, 0.4); }
-        .vf-glow { color: #FFFFFF; text-shadow: 0 0 15px rgba(255, 255, 255, 0.6); } /* White text for perfect contrast on orange background */
-        .f-glow { color: #B3F0D8; text-shadow: 0 0 15px rgba(179, 240, 216, 0.4); }
-        .g-glow { color: #EADFA8; text-shadow: 0 0 15px rgba(234, 223, 168, 0.4); }
-        .tech-glow { color: #33FFCC; text-shadow: 0 0 15px rgba(51, 255, 204, 0.4); }
-        .po-glow { color: #FF5555; text-shadow: 0 0 15px rgba(255, 85, 85, 0.4); }
+        #sector-ms { 
+            background: linear-gradient(180deg, #F9FAFB 0%, #FAFAF7 50%, #FCFAF4 100%); 
+            border-left: 6px solid #FFD700;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+        }
+        #sector-au { 
+            background: linear-gradient(135deg, #F2F4F7 0%,  #D2D7DF 50%, #B0B7C3 100%) !important; 
+            border-left: 6px solid #7A869A;
+        }
+        #sector-xf { 
+            background: linear-gradient(135deg, #FFE2D1 0%, #FFB78C 50%, #D17979 100%) !important; 
+            border-left: 6px solid #D17979;
+        }
+        #sector-vf { 
+            background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 90%), linear-gradient(135deg, #FF5C00 0%, #FF2E00 100%) !important; 
+            border-left: 6px solid #3D0000;
+        }
+        #sector-f { 
+            background: linear-gradient(135deg, #6BDCFF 0%, #6BDCFF 50%, #1239FF 100%) !important; 
+            border-left: 6px solid #1239FF;
+        }
+        #sector-g { 
+            background: linear-gradient(135deg, #50CC7A 0%, #50CC7A 65%, #006970 100%) !important; 
+            border-left: 6px solid #004D54;
+        }
+        #sector-tech { 
+            background: linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 100%), linear-gradient(135deg, #86B1BA 0%, #000000 100%) !important; 
+            border-left: 6px solid #86B1BA;
+        }
+
+        
+        @keyframes magmaTremble {
+            0% { transform: translate(0,0) scale(1); }
+            20% { transform: translate(-1px,1px) scale(1.002); }
+            40% { transform: translate(-1px,-1px) scale(0.998); }
+            60% { transform: translate(1px,1px) scale(1.001); }
+            80% { transform: translate(1px,-1px) scale(0.999); }
+            100% { transform: translate(0,0) scale(1); }
+        }
+        @keyframes magmaFlow {
+            0% { border-color: #3D0000; box-shadow: 0 4px 15px rgba(191,69,0,0.3); }
+            50% { border-color: #FF5C00; box-shadow: 0 4px 25px rgba(255, 92, 0, 0.6); }
+            100% { border-color: #3D0000; box-shadow: 0 4px 15px rgba(191,69,0,0.3); }
+        }
+        #sector-po { 
+            background-color: #0D0200 !important;
+            background-image: linear-gradient(105deg,rgba(255,255,255,0.07) 0%,rgba(255,255,255,0) 12%,rgba(255,255,255,0.07) 13%,rgba(255,255,255,0) 30%),linear-gradient(45deg,rgba(255,255,255,0.05) 0%,rgba(255,255,255,0) 20%,rgba(255,255,255,0.05) 21%,rgba(255,255,255,0) 50%),linear-gradient(165deg,rgba(255,255,255,0) 40%,rgba(255,255,255,0.06) 42%,rgba(255,255,255,0) 45%),linear-gradient(25deg,rgba(255,255,255,0) 60%,rgba(255,255,255,0.05) 62%,rgba(255,255,255,0) 68%),linear-gradient(115deg,rgba(255,255,255,0) 75%,rgba(255,255,255,0.08) 77%,rgba(255,255,255,0) 80%),radial-gradient(circle at 50% 50%,#260000 0%,#0D0200 70%,#000000 100%) !important;
+            border-left: 6px solid #3D0000;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.9);
+        }
+        #sector-po .tier-title { color: #BF4500 !important; text-shadow: 0 0 10px rgba(191,69,0,0.5); font-weight: 900; }
+
+        
+        .ms-title { color: #856404; }
+        .au-title { color: #2C3E50; }
+        .xf-title { color: #4A1A1A; }
+        .vf-title { color: #FFFFFF; text-shadow: 0 0 10px rgba(0,0,0,0.4); }
+        .f-title { color: #FFFFFF; text-shadow: 0 0 8px rgba(0, 0, 0, 0.5); }
+        .g-title { color: #FFFFFF; text-shadow: 0 0 8px rgba(0, 0, 0, 0.4); }
+        .tech-title { color: #000000; }
         
         
         .card-grid {
@@ -102,8 +138,8 @@
             gap: 20px;
         }
         .movie-card {
-            background-color: rgba(20, 20, 20, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 8px;
             padding: 20px;
             display: flex;
@@ -111,44 +147,59 @@
             justify-content: space-between;
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
             backdrop-filter: blur(4px);
         }
-        
-        #sector-vf .movie-card {
-            background-color: rgba(0, 0, 0, 0.4);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
         .movie-card:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-color: rgba(0, 200, 255, 0.3);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-        }
-        #sector-vf .movie-card:hover {
-            background-color: rgba(0, 0, 0, 0.6);
-            border-color: #FFFFFF;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            border-color: rgba(0,0,0,0.15);
         }
         .movie-title {
-            color: #FFFFFF;
+            color: #111111;
             font-size: 1.15rem;
-            font-weight: 600;
+            font-weight: 700;
             margin: 0 0 10px 0;
-        }
-        .movie-card:hover .movie-title {
-            color: #00C8FF;
-        }
-        #sector-vf .movie-card:hover .movie-title {
-            color: #FFFFFF;
-            text-decoration: underline;
         }
         .movie-meta {
             font-size: 0.85rem;
-            color: #999999;
+            color: #555555;
             line-height: 1.5;
+            font-weight: 600;
         }
-        #sector-vf .movie-meta {
-            color: #EEEEEE;
+
+        
+        #sector-vf .movie-card { background-color: rgba(0, 0, 0, 0.4); border-color: rgba(255, 255, 255, 0.1); }
+        #sector-vf .movie-card:hover { background-color: rgba(0, 0, 0, 0.6); border-color: #FFFFFF; }
+        #sector-vf .movie-title { color: #FFFFFF; }
+        #sector-vf .movie-meta { color: #EEEEEE; }
+
+        #sector-f .movie-card { background-color: rgba(0, 0, 0, 0.4); border-color: rgba(0, 0, 0, 0.15); }
+        #sector-f .movie-card:hover { background-color: rgba(0, 0, 0, 0.6); border-color: #1239FF; }
+        #sector-f .movie-title { color: #FFFFFF; }
+        #sector-f .movie-meta { color: #E0E0E0; }
+
+        #sector-g .movie-card { background-color: rgba(0, 0, 0, 0.35); border-color: rgba(255, 255, 255, 0.1); }
+        #sector-g .movie-card:hover { background-color: rgba(0, 0, 0, 0.55); border-color: #50CC7A; }
+        #sector-g .movie-title { color: #FFFFFF; }
+        #sector-g .movie-meta { color: #E0E0E0; }
+
+        #sector-tech .movie-card { background-color: rgba(0, 0, 0, 0.6); border-color: rgba(255, 255, 255, 0.15); }
+        #sector-tech .movie-card:hover { background-color: rgba(0, 0, 0, 0.8); border-color: #86B1BA; }
+        #sector-tech .movie-title { color: #6BDCFF; }
+        #sector-tech .movie-meta { color: #DDDDDD; }
+
+    
+        #sector-po .movie-card {
+            background: #000000 !important;
+            border: 5px solid #3D0000 !important;
+            border-radius: 2px !important;
+            box-sizing: border-box !important;
+            animation: magmaFlow 3s infinite ease-in-out, magmaTremble 0.25s infinite !important;
         }
+        #sector-po .movie-title { color: #BF4500 !important; font-weight: 900 !important; }
+        #sector-po .movie-meta { color: #BF4500 !important; font-weight: 900 !important; }
+        #sector-po .movie-card:hover .movie-title { color: #FF5C00 !important; }
     </style>
 </head>
 <body>
@@ -156,52 +207,53 @@
 <div class="container">
     <div class="header">
         <h1>Movie Grading Consensus™</h1>
-        <div class="lens-badge">🏛 SOVEREIGN NUMISMATIC FILM REGISTRY // AUTOMATED PIPELINE</div>
+        <div class="lens-badge">🏛 SOVEREIGN NUMISMATIC FILM REGISTRY </div>
         <p class="description">
             Examining cinema like uncirculated coinage. Free from corporate grade inflation, tracking parameters are forged under rigorous community appellate review.
         </p>
     </div>
 
-    
-    <div id="sector-ms" class="tier-section"><h2 class="tier-title ms-glow">💎 MINT STATE DIVISION (MS-60 to MS-69)</h2><div class="card-grid" id="grid-ms"></div></div>
-    <div id="sector-au" class="tier-section"><h2 class="tier-title au-glow">🥈 ABOUT UNCIRCULATED REGISTRY (AU-50 to AU-58)</h2><div class="card-grid" id="grid-au"></div></div>
-    <div id="sector-xf" class="tier-section"><h2 class="tier-title xf-glow">🎬 EXTREMELY FINE REGISTER (XF-40 to XF-45)</h2><div class="card-grid" id="grid-xf"></div></div>
+
+    <div id="sector-ms" class="tier-section"><h2 class="tier-title ms-title">💎 MINT STATE DIVISION (MS-60 to MS-70)</h2><div class="card-grid" id="grid-ms"></div></div>
+    <div id="sector-au" class="tier-section"><h2 class="tier-title au-title">🥈 ABOUT UNCIRCULATED REGISTRY (AU-50 to AU-58)</h2><div class="card-grid" id="grid-au"></div></div>
+    <div id="sector-xf" class="tier-section"><h2 class="tier-title xf-title">🎬 EXTREMELY FINE REGISTER (XF-40 to XF-45)</h2><div class="card-grid" id="grid-xf"></div></div>
     <div id="sector-vf" class="tier-section"><h2 class="tier-title vf-glow">🏎 VERY FINE REGISTER (VF-20 to VF-37)</h2><div class="card-grid" id="grid-vf"></div></div>
-    <div id="sector-f" class="tier-section"><h2 class="tier-title f-glow">📜 FINE REGISTER (F-12 to F-15)</h2><div class="card-grid" id="grid-f"></div></div>
-    <div id="sector-g" class="tier-section"><h2 class="tier-title g-glow">🪵 GOOD REGISTER (G-4 to G-6)</h2><div class="card-grid" id="grid-g"></div></div>
-    <div id="sector-tech" class="tier-section"><h2 class="tier-title tech-glow">🛠🎛 TECHNICAL DESIGNATION REGISTER (C-70)</h2><div class="card-grid" id="grid-tech"></div></div>
-    <div id="sector-po" class="tier-section"><h2 class="tier-title po-glow">🚨 PO-1 BASAL STATE FLOOR</h2><div class="card-grid" id="grid-po"></div></div>
+    <div id="sector-f" class="tier-section"><h2 class="tier-title f-title">📜 FINE REGISTER (F-12 to F-15)</h2><div class="card-grid" id="grid-f"></div></div>
+    <div id="sector-g" class="tier-section"><h2 class="tier-title g-title">🪵 GOOD REGISTER (G-4 to G-6)</h2><div class="card-grid" id="grid-g"></div></div>
+    <div id="sector-tech" class="tier-section"><h2 class="tier-title tech-title">🛠🎛 TECHNICAL DESIGNATION REGISTER (C-70)</h2><div class="card-grid" id="grid-tech"></div></div>
+    <div id="sector-po" class="tier-section"><h2 class="tier-title po-glow">🚨 PO-1 BASAL STATE DUNGEON LAYER</h2><div class="card-grid" id="grid-po"></div></div>
 </div>
 
 <script>
     
     const mgcInventory = [
         { title: "District 9 (2009)", path: "ms/district9.html", tier: "ms", meta: "MGC MS-67 Choice Gem Specimen" },
-        { title: "Interstellar (2014)", path: "ms/interstellar.html", tier: "ms", meta: "Under Active Appellate Inquest" },
+        { title: "There Will Be Blood (2007)", path: "ms/therewillbeblood.html", tier: "ms", meta: "MGC MS-70 Gold Proof Perfect Strike" },
+        { title: "The Vvitch (2015)", path: "ms/thevvitch.html", tier: "ms", meta: "MGC MS-70 Gold Proof Perfect Strike // Certified" },
         { title: "Eastern Promises (2007)", path: "au/easternpromises.html", tier: "au", meta: "MGC AU-58 Choice About Uncirculated" },
         { title: "River's Edge (1986)", path: "xf/riversedge.html", tier: "xf", meta: "MGC XF-45 Choice Extremely Fine" },
         { title: "Rocky IV (1985)", path: "xf/rocky4.html", tier: "xf", meta: "MGC XF-40 Extremely Fine Specimen" },
         { title: "Chariots of Fire (1981)", path: "vf/chariotsoffire.html", tier: "vf", meta: "MGC VF-37 Historical Correction" },
         { title: "High Risk (1981)", path: "f/highrisk.html", tier: "f", meta: "MGC F-12 Circulated Fine" },
         { title: "The Squeeze (1987)", path: "g/thesqueeze.html", tier: "g", meta: "MGC G-4 Heavily Circulated Asset" },
-        { title: "Nail Gun Massacre (1985)", path: "po/nailgunmassacre.html", tier: "po", meta: "MGC P-1 Structural Corrosion" },
-        { title: "Speed Racer (2008)", path: "tech/speedracer.html", tier: "tech", meta: "MGC C-70 Top Pop Color Palette" }
+        { title: "Speed Racer (2008)", path: "tech/speedracer.html", tier: "tech", meta: "MGC C-70 Top Pop Color Palette" },
+        { title: "Nail Gun Massacre (1985)", path: "po/nailgunmassacre.html", tier: "po", meta: "🚨 STRUCTURAL CORROSION FLOOR 🚨" }
     ];
 
     
     mgcInventory.forEach(movie => {
         const sector = document.getElementById(`sector-${movie.tier}`);
         const grid = document.getElementById(`grid-${movie.tier}`);
-        
+
         if (sector && grid) {
             sector.style.display = "block"; 
-            
+
             
             const card = document.createElement("a");
             card.className = "movie-card";
             card.href = movie.path;
             card.innerHTML = `
-                <div class="movie-title">${movie.title}</div>
+                <div class="movie-title">${movie.title}</div> 
                 <div class="movie-meta">${movie.meta}</div>
             `;
             grid.appendChild(card);
