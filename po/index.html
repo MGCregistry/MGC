@@ -1,1 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MGC — 🚨 PO-1 BASAL STATE FLOOR</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #030101;
+    color: #d8c8c8;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 16px 60px;
+    background-image: radial-gradient(circle at 50% 0%, #1a0303 0%, #030101 75%);
+  }
 
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.25) 0px, rgba(0,0,0,0.25) 1px, transparent 1px, transparent 3px);
+    pointer-events: none;
+    z-index: 99;
+  }
+
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 50;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 540px;
+    z-index: 10;
+    position: relative;
+  }
+
+  header {
+    border-bottom: 2px solid #6b0000;
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #ff1e1e;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.7), 2px 0 #0ff;
+    animation: glitch 3s infinite;
+  }
+
+  .sub-tag {
+    font-size: 11px;
+    color: #8a4444;
+    margin-top: 5px;
+    letter-spacing: 1px;
+  }
+
+  .rec {
+    font-size: 11px;
+    color: #ff1e1e;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    animation: blink 1.2s infinite;
+  }
+
+  .floor-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    color: #b59e9e;
+    background: rgba(18, 2, 2, 0.85);
+    border: 1px solid #3d0606;
+    border-left: 3px solid #9e0000;
+    padding: 14px;
+    margin-bottom: 18px;
+  }
+
+  .hazard-bar {
+    text-align: center;
+    font-size: 12px;
+    color: #8a1919;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    user-select: none;
+  }
+
+  .trigger-btn {
+    width: 100%;
+    background: #1a0202;
+    color: #ff4d4d;
+    border: 1px dashed #8a0303;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 22px;
+    transition: all 0.15s ease;
+  }
+
+  .trigger-btn:hover {
+    background: #2e0303;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+  }
+
+  .vault-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 30px;
+  }
+
+  .bleed-btn {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
+    background: #140202;
+    color: #ff2a2a;
+    border: 1px solid #8a0303;
+    padding: 16px 14px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s ease;
+    box-shadow: 0 0 15px rgba(138, 3, 3, 0.25), inset 0 0 10px rgba(138, 3, 3, 0.3);
+  }
+
+  .bleed-btn:hover {
+    background: #2b0303;
+    color: #ffffff;
+    border-color: #ff1e1e;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.55), inset 0 0 15px rgba(255, 0, 0, 0.4);
+    text-shadow: 0 0 6px #ff0000;
+    transform: translateY(-1px);
+  }
+
+  .bleed-btn:active {
+    transform: scale(0.98);
+    background: #590000;
+    color: #fff;
+  }
+
+  .nav-footer {
+    text-align: center;
+    border-top: 1px solid #3d0606;
+    padding-top: 18px;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: #9e4747;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 8px 14px;
+    border: 1px solid #3d0606;
+    transition: all 0.15s ease;
+  }
+
+  .back-link:hover {
+    color: #ff2a2a;
+    border-color: #8a0303;
+    background: #140202;
+  }
+
+  @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  @keyframes glitch {
+    0%, 94%, 100% { transform: translate(0); }
+    95% { transform: translate(-2px, 1px); text-shadow: -2px 0 #ff0000, 2px 0 #00ffff; }
+    97% { transform: translate(2px, -1px); text-shadow: 2px 0 #ff0000, -2px 0 #00ffff; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="goreCanvas"></canvas>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>🚨 PO-1 BASAL STATE FLOOR</h1>
+      <div class="sub-tag">SUB-BASEMENT // SCRAP METAL VAULT</div>
+    </div>
+    <div class="rec">● HAZARD: P-1</div>
+  </header>
+
+  <div class="floor-desc">
+    Absolute bottom-of-the-barrel cinematic scrap metal. Total structural corrosion with unreadable narrative details and catastrophic execution.
+  </div>
+
+  <div class="hazard-bar">💀 ⛓ ⚙ ———————— 🗜 ⛓ 💀</div>
+
+  <button class="trigger-btn" id="triggerBtn">[ TEST CONTAINMENT SEAL ]</button>
+
+  <div class="vault-list">
+    <a href="nailgunmassacre.html" class="bleed-btn">🚨 NAIL GUN MASSACRE (1985) – P-1</a>
+    <a href="theannihilators.html" class="bleed-btn">🌋 THE ANNIHILATORS (1985) – MGC P-1</a>
+    <a href="rocknroll3.html" class="bleed-btn">👙 ROCK N' ROLL #3 (1987) – MGC P-1</a>
+    <a href="facesofdeath3.html" class="bleed-btn">🐒 FACES OF DEATH III (1985) – MGC PO-1</a>
+    <a href="superbowlofcrashes.html" class="bleed-btn">💥 SUPERBOWL OF CRASHES (1989) – PO-1</a>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../index.html" class="back-link">← RETURN TO MAIN HUB</a>
+  </div>
+</div>
+
+<script>
+  const canvas = document.getElementById('goreCanvas');
+  const ctx = canvas.getContext('2d');
+  let w, h;
+  let drops = [];
+
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  class BloodDrop {
+    constructor(x, y, isSplatter) {
+      this.x = x;
+      this.y = y;
+      this.r = isSplatter ? Math.random() * 4 + 1.5 : Math.random() * 3 + 2;
+      this.vx = isSplatter ? (Math.random() - 0.5) * 14 : 0;
+      this.vy = isSplatter ? (Math.random() - 0.8) * 12 : Math.random() * 1.4 + 0.4;
+      this.gravity = isSplatter ? 0.45 : 0.015;
+      this.drag = isSplatter ? 0.94 : 1;
+      this.color = Math.random() > 0.3 ? '#8a0303' : '#cc0000';
+      this.trail = [];
+      this.isSplatter = isSplatter;
+      this.life = 100;
+    }
+
+    update() {
+      if (this.isSplatter) {
+        this.vx *= this.drag;
+        this.vy += this.gravity;
+        this.x += this.vx;
+        this.y += this.vy;
+        this.life -= 2;
+
+        if (this.life < 60 && Math.random() > 0.85) {
+          this.isSplatter = false;
+          this.vx = 0;
+          this.vy = Math.random() * 0.8 + 0.2;
+        }
+      } else {
+        this.trail.push({ x: this.x, y: this.y, r: this.r });
+        if (this.trail.length > 28) this.trail.shift();
+        this.y += this.vy;
+        this.r *= 0.996;
+      }
+    }
+
+    draw() {
+      ctx.fillStyle = this.color;
+      if (!this.isSplatter) {
+        for (let i = 0; i < this.trail.length; i++) {
+          const t = this.trail[i];
+          const alpha = (i / this.trail.length) * 0.7;
+          ctx.globalAlpha = alpha;
+          ctx.beginPath();
+          ctx.arc(t.x, t.y, t.r * 0.75, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+      ctx.globalAlpha = 0.9;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  function spawnSplatter(x, y, count = 28) {
+    for (let i = 0; i < count; i++) {
+      drops.push(new BloodDrop(x, y, true));
+    }
+  }
+
+  // Initial top-edge drips so the dungeon bleeds on load
+  for (let i = 0; i < 14; i++) {
+    drops.push(new BloodDrop(Math.random() * w, Math.random() * 30, false));
+  }
+
+  document.getElementById('triggerBtn').addEventListener('click', (e) => {
+    const rect = e.target.getBoundingClientRect();
+    spawnSplatter(rect.left + rect.width / 2, rect.top + rect.height / 2, 36);
+  });
+
+  document.querySelectorAll('.bleed-btn').forEach(btn => {
+    btn.addEventListener('mouseenter', (e) => {
+      const rect = e.target.getBoundingClientRect();
+      spawnSplatter(rect.left + Math.random() * rect.width, rect.top, 8);
+    });
+  });
+
+  function animate() {
+    ctx.clearRect(0, 0, w, h);
+
+    if (Math.random() < 0.04 && drops.length < 120) {
+      drops.push(new BloodDrop(Math.random() * w, -5, false));
+    }
+
+    for (let i = drops.length - 1; i >= 0; i--) {
+      drops[i].update();
+      drops[i].draw();
+      if (drops[i].y > h + 40 || drops[i].r < 0.25 || drops[i].life <= 0) {
+        drops.splice(i, 1);
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+</body>
+</html>
