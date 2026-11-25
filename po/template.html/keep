@@ -92,6 +92,16 @@
     <ul>
       <li>Entire case</li>
     </ul>
+<hr>
+    <div style="text-align: center;">
+      <a href="index.html" class="p1-dungeon-link">← RETURN TO PO-1 FLOOR</a>
+    </div>
+    <div class="photo-stack">
+      <img src="../IMG_0240.jpeg" alt="MGC Judicial Gavel" class="vault-photo">
+    </div>
+    <p style="text-align: center; font-size: 14px; margin-top: 15px;">• © 2026 MOVIE GRADING CONSENSUS. All Sovereign Rights Reserved.</p>
+    <p style="text-align: center; margin-top: 8px;"><a href="https://mgcmovies.com" style="color: #FF5C00; text-decoration: none; font-size: 14px;">mgcmovies.com</a></p>
+  </div>
   <script>
   const canvas = document.getElementById('goreCanvas');
   const ctx = canvas.getContext('2d');
@@ -172,17 +182,6 @@
     drops.push(new BloodDrop(Math.random() * w, Math.random() * 30, false));
   }
 
-  document.getElementById('triggerBtn').addEventListener('click', (e) => {
-    const rect = e.target.getBoundingClientRect();
-    spawnSplatter(rect.left + rect.width / 2, rect.top + rect.height / 2, 36);
-  });
-
-  document.querySelectorAll('.bleed-btn').forEach(btn => {
-    btn.addEventListener('mouseenter', (e) => {
-      const rect = e.target.getBoundingClientRect();
-      spawnSplatter(rect.left + Math.random() * rect.width, rect.top, 8);
-    });
-  });
 
   function animate() {
     ctx.clearRect(0, 0, w, h);
@@ -204,6 +203,5 @@
 
   animate();
 </script>
-</div>
 </body>
 </html>
