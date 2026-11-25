@@ -77,7 +77,7 @@
   .vault-container { max-width: 450px; margin: 40px auto; padding: 0 20px; position: relative; z-index: 10; }
   .photo-stack { margin-top: 25px; display: flex; flex-direction: column; gap: 15px; }
   .vault-photo { width: 100%; border: 3px solid #3D0000; border-radius: 4px; background-color: #0D0200; }
-  ul { background-color: rgba(18, 2, 2, 0.85); border: 1px solid #3D0000; border-left: 5px solid #BF4500; padding: 15px 15px 15px 30px; list-style-type: square; border-radius: 4px; margin-bottom: 25px; }
+  ul { background-color: rgba(18, 2, 2, 0.85); border: 1px solid #3D0000; border-left: 5px solid #3D0000; padding: 15px 15px 15px 30px; list-style-type: square; border-radius: 4px; margin-bottom: 25px; }
   hr { border: 0; height: 1px; background: #3D0000; margin: 30px 0; }
 h3 { border-bottom: 1px solid #3D0000; padding-bottom: 6px; margin-top: 30px; }
 .rec { font-size: 12px; color: #ff1e1e !important; letter-spacing: 1px; animation: blink 1.2s infinite; text-align: right; margin-bottom: 6px; }
@@ -85,6 +85,7 @@ h3 { border-bottom: 1px solid #3D0000; padding-bottom: 6px; margin-top: 30px; }
 .trigger-btn { width: 100%; background: #1a0202; color: #ff4d4d; border: 1px dashed #8a0303; padding: 10px; font-family: inherit; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; margin: 18px 0; }
 li, p { font-size: 19px; line-height: 1.5; margin-bottom: 12px; }
 h1 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 20px; color: #FF5C00 !important; }
+em { color: #FF5C00 !important; font-style: italic; }
 </style>
 </head>
 <body>
@@ -212,7 +213,7 @@ h1 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 20px; color: #FF
     drops.push(new BloodDrop(Math.random() * w, Math.random() * 30, false));
   }
 document.getElementById('triggerBtn').addEventListener('click', (e) => { const r = e.target.getBoundingClientRect(); spawnSplatter(r.left + r.width / 2, r.top + r.height / 2, 36); });
-
+document.addEventListener('pointerdown', (e) => { spawnSplatter(e.clientX, e.clientY, 24); });
   function animate() {
     ctx.clearRect(0, 0, w, h);
 
