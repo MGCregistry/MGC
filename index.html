@@ -184,11 +184,6 @@
         #sector-g .movie-title { color: #FFFFFF; }
         #sector-g .movie-meta { color: #E0E0E0; }
 
-        #sector-tech .movie-card { background-color: rgba(0, 0, 0, 0.6); border-color: rgba(255, 255, 255, 0.15); }
-        #sector-tech .movie-card:hover { background-color: rgba(0, 0, 0, 0.8); border-color: #86B1BA; }
-        #sector-tech .movie-title { color: #6BDCFF; }
-        #sector-tech .movie-meta { color: #DDDDDD; }
-
     
         #sector-po .movie-card {
             background: #000000 !important;
@@ -200,6 +195,11 @@
         #sector-po .movie-title { color: #BF4500 !important; font-weight: 900 !important; }
         #sector-po .movie-meta { color: #BF4500 !important; font-weight: 900 !important; }
         #sector-po .movie-card:hover .movie-title { color: #FF5C00 !important; }
+ 
+        #sector-tech .movie-card { background-color: rgba(0, 0, 0, 0.6); border-color: rgba(255, 255, 255, 0.15); }
+        #sector-tech .movie-card:hover { background-color: rgba(0, 0, 0, 0.8); border-color: #86B1BA; }
+        #sector-tech .movie-title { color: #6BDCFF; }
+        #sector-tech .movie-meta { color: #DDDDDD; }
     </style>
 </head>
 <body>
@@ -226,21 +226,21 @@
 
 <script>
     
-    const mgcInventory = [
-        { title: "District 9 (2009)", path: "ms/district9.html", tier: "ms", meta: "MGC MS-67 Choice Gem Specimen" },
-        { title: "There Will Be Blood (2007)", path: "ms/therewillbeblood.html", tier: "ms", meta: "MGC MS-70 Gold Proof Perfect Strike" },
-        { title: "The Vvitch (2015)", path: "ms/thevvitch.html", tier: "ms", meta: "MGC MS-70 Gold Proof Perfect Strike // Certified" },
-        { title: "Eastern Promises (2007)", path: "au/easternpromises.html", tier: "au", meta: "MGC AU-58 Choice About Uncirculated" },
-        { title: "River's Edge (1986)", path: "xf/riversedge.html", tier: "xf", meta: "MGC XF-45 Choice Extremely Fine" },
-        { title: "Rocky IV (1985)", path: "xf/rocky4.html", tier: "xf", meta: "MGC XF-40 Extremely Fine Specimen" },
-        { title: "Chariots of Fire (1981)", path: "vf/chariotsoffire.html", tier: "vf", meta: "MGC VF-37 Historical Correction" },
-        { title: "High Risk (1981)", path: "f/highrisk.html", tier: "f", meta: "MGC F-12 Circulated Fine" },
-        { title: "The Squeeze (1987)", path: "g/thesqueeze.html", tier: "g", meta: "MGC G-4 Heavily Circulated Asset" },
-        { title: "Speed Racer (2008)", path: "tech/speedracer.html", tier: "tech", meta: "MGC C-70 Top Pop Color Palette" },
-        { title: "Nail Gun Massacre (1985)", path: "po/nailgunmassacre.html", tier: "po", meta: "🚨 STRUCTURAL CORROSION FLOOR 🚨" }
-    ];
+    const mgcPortals = [
+  { id: "ms", href: "ms/index.html", spec: "GRADES MS-60 TO MS-70 // UNCIRCULATED MASTERWORKS", btn: "[ ENTER MINT STATE REGISTRY → ]" },
+  { id: "au", href: "au/index.html", spec: "GRADES AU-50 TO AU-58 // TRACE PACING WEAR", btn: "[ ENTER AU REGISTRY → ]" },
+  { id: "xf", href: "xf/index.html", spec: "GRADES XF-40 TO XF-45 // LIGHT SURFACE WEAR", btn: "[ ENTER XF REGISTER → ]" },
+  { id: "vf", href: "vf/index.html", spec: "GRADES VF-20 TO VF-37 // MODERATE PLOT WEAR", btn: "[ ENTER VF REGISTER → ]" },
+  { id: "f",  href: "f/index.html",  spec: "GRADES F-12 TO F-15 // VISIBLE SCRIPT FATIGUE", btn: "[ ENTER FINE REGISTER → ]" },
+  { id: "g",  href: "g/index.html",  spec: "GRADES G-2 TO VG-10 // MAJOR STRUCTURAL DEFECTS", btn: "[ ENTER GOOD REGISTER → ]" },
+  { id: "po", href: "po/index.html", spec: "GRADE PO-1 // BASAL STATE CORROSION FLOOR", btn: "🚨 [ ENTER DUNGEON LAYER → ] 🚨" },
+  { id: "tech", href: "tech/index.html", spec: "DESIGNATION C-70 // COLOR & VISUAL EXHIBITS", btn: "[ ENTER TECHNICAL REGISTER → ]" }
+];
 
-    
+mgcPortals.forEach(p => {
+  document.getElementById(`sector-${p.id}`).style.display = "block";
+  document.getElementById(`grid-${p.id}`).innerHTML = `<a class="movie-card" href="${p.href}"><div class="movie-title">${p.spec}</div><div class="movie-meta">${p.btn}</div></a>`;
+});    
     mgcInventory.forEach(movie => {
         const sector = document.getElementById(`sector-${movie.tier}`);
         const grid = document.getElementById(`grid-${movie.tier}`);
