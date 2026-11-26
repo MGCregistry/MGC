@@ -243,20 +243,6 @@ mgcPortals.forEach(p => {
 });    
     
 
-        if (sector && grid) {
-            sector.style.display = "block"; 
-
-            
-            const card = document.createElement("a");
-            card.className = "movie-card";
-            card.href = movie.path;
-            card.innerHTML = `
-                <div class="movie-title">${movie.title}</div> 
-                <div class="movie-meta">${movie.meta}</div>
-            `;
-            grid.appendChild(card);
-        }
-    });
 </script>
 
 </body>
