@@ -220,8 +220,8 @@
     <div id="sector-vf" class="tier-section"><h2 class="tier-title vf-glow">🏎 VERY FINE REGISTER (VF-20 to VF-37)</h2><div class="card-grid" id="grid-vf"></div></div>
     <div id="sector-f" class="tier-section"><h2 class="tier-title f-title">📜 FINE REGISTER (F-12 to F-15)</h2><div class="card-grid" id="grid-f"></div></div>
     <div id="sector-g" class="tier-section"><h2 class="tier-title g-title">🪵 GOOD REGISTER (G-4 to G-6)</h2><div class="card-grid" id="grid-g"></div></div>
-    <div id="sector-tech" class="tier-section"><h2 class="tier-title tech-title">🛠🎛 TECHNICAL DESIGNATION REGISTER (C-70)</h2><div class="card-grid" id="grid-tech"></div></div>
     <div id="sector-po" class="tier-section"><h2 class="tier-title po-glow">🚨 PO-1 BASAL STATE DUNGEON LAYER</h2><div class="card-grid" id="grid-po"></div></div>
+    <div id="sector-tech" class="tier-section"><h2 class="tier-title tech-title">🛠🎛 TECHNICAL DESIGNATION REGISTER (C-70)</h2><div class="card-grid" id="grid-tech"></div></div>
 </div>
 
 <script>
@@ -241,9 +241,7 @@ mgcPortals.forEach(p => {
   document.getElementById(`sector-${p.id}`).style.display = "block";
   document.getElementById(`grid-${p.id}`).innerHTML = `<a class="movie-card" href="${p.href}"><div class="movie-title">${p.spec}</div><div class="movie-meta">${p.btn}</div></a>`;
 });    
-    mgcInventory.forEach(movie => {
-        const sector = document.getElementById(`sector-${movie.tier}`);
-        const grid = document.getElementById(`grid-${movie.tier}`);
+    
 
         if (sector && grid) {
             sector.style.display = "block"; 
