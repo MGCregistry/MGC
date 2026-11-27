@@ -24,7 +24,7 @@ h1, h3, h4 {
     background-size: 100% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: srColorWaterfall 3.5s linear infinite;
+    animation: srHeaderWaterfall 3.5s linear infinite;
 }
 h1 {
     font-size: 32px;
@@ -42,18 +42,25 @@ h3 {
 h4 {
     font-size: 20px;
     margin-top: 30px;
+p, li, strong, em {
+    background: linear-gradient(135deg, #FF0055, #FF8800, #FFE600, #00FF88, #00F0FF, #9D00FF, #FF0055);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: srBodyDiagonal 4s linear infinite;
 }
 p {
     font-size: 19px;
     line-height: 1.6;
     margin-bottom: 20px;
-    color: #e8e8e8;
 }
-hr {
-    border: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #FF007F, #FFE600, #00F0FF);
-    margin: 40px 0;
+li {
+    font-size: 19px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+em {
+    font-style: italic;
 }
 ul {
     background-color: #0d0d0d;
@@ -66,19 +73,8 @@ ul {
     border-radius: 6px;
     margin-bottom: 25px;
 }
-li {
-    font-size: 19px;
-    line-height: 1.5;
-    margin-bottom: 12px;
-    color: #e8e8e8;
-}
 strong {
     color: #ffffff;
-}
-em {
-    color: #00F0FF;
-    font-style: italic;
-}
 .photo-stack {
     margin-top: 25px;
     display: flex;
@@ -92,9 +88,13 @@ em {
     background-color: #111111;
     box-shadow: 0 0 18px rgba(0, 240, 255, 0.2);
 }
-@keyframes srColorWaterfall {
+@keyframes srHeaderWaterfall {
     0% { background-position: center 0%; }
     100% { background-position: center 300%; }
+}
+@keyframes srBodyDiagonal {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
 }
 </style>
 </head>
@@ -104,9 +104,9 @@ em {
 
 
 <div class="photo-stack">
-<img src="../images-technical/speedracer.JPG" alt="Speed Racer 2008" class="vault-photo">
-<img src="../images-technical/speedracer2.JPG" alt="Speed Racer 2 2008" class="vault-photo">
-<img src="../images-technical/speedracer3.JPG" alt="Speed Racer 3 2008" class="vault-photo">
+<img src="..technical/images-technical/speedracer.JPG" alt="Speed Racer 2008" class="vault-photo">
+<img src="..technical/images-technical/speedracer2.JPG" alt="Speed Racer 2 2008" class="vault-photo">
+<img src="..technical/images-technical/speedracer3.JPG" alt="Speed Racer 3 2008" class="vault-photo">
 </div>
 
 <hr>
