@@ -16,8 +16,7 @@ body {
 
 html { background-color: #000000; }
 body { background: transparent; color: #ffffff; margin: 0; padding: 0; overflow-x: hidden; }
-body::before {
-    content: "";
+.stage-lights {
     position: fixed;
     top: -30%;
     left: -25%;
@@ -25,17 +24,16 @@ body::before {
     height: 150%;
     z-index: 0;
     pointer-events: none;
+    will-change: transform;
     background:
-        conic-gradient(from 155deg at 25% 0%, transparent 0deg, rgba(0, 240, 255, 0.16) 10deg, transparent 22deg),
-        conic-gradient(from 195deg at 75% 0%, transparent 0deg, rgba(255, 0, 127, 0.16) 10deg, transparent 22deg),
-        conic-gradient(from 175deg at 50% 0%, transparent 0deg, rgba(255, 215, 0, 0.12) 8deg, transparent 18deg);
-    animation: concertBeams 6s ease-in-out infinite alternate;
+        conic-gradient(from 155deg at 25% 0%, transparent 0deg, rgba(0, 240, 255, 0.18) 10deg, transparent 22deg),
+        conic-gradient(from 195deg at 75% 0%, transparent 0deg, rgba(255, 0, 127, 0.18) 10deg, transparent 22deg),
+        conic-gradient(from 175deg at 50% 0%, transparent 0deg, rgba(255, 215, 0, 0.14) 8deg, transparent 18deg);
+    animation: concertBeams 5s ease-in-out infinite alternate;
 }
-.vault-container { position: relative; z-index: 1; max-width: 450px; margin: 40px auto; padding: 0 20px; }
-
 @keyframes concertBeams {
-    0% { transform: rotate(-7deg) scale(1.05); }
-    100% { transform: rotate(7deg) scale(1.05); }
+    0% { transform: translate3d(0, 0, 0) rotate(-8deg) scale(1.05); }
+    100% { transform: translate3d(0, 0, 0) rotate(8deg) scale(1.05); }
 }
 
 .vault-container {
@@ -132,6 +130,7 @@ em {
 </style>
 </head>
 <body>
+<div class="stage-lights"></div>
 <div class="vault-container">
 <h1> 🎸Angine de Poitrine — “Utzp” — CERTIFIED MGC HG-70         </h1>
 
@@ -171,7 +170,7 @@ text-align: center;
 box-shadow: 0 0 25px rgba(147, 51, 234, 0.45), 0 4px 15px rgba(0, 0, 0, 0.6);
 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.85);
 ">
-🎬 LIVE "UTZP" (47:36 TIMESTAMP)
+🎬🎸🎸🎶LIVE "UTZP" (47:36 TIMESTAMP)
 </a>
 </div>
 
@@ -210,7 +209,7 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.85);
 <h4> Movement I — The Roots & Frontier Initialization (Genres 1–5):
 French-Canadian Folk ➔ Country ➔ Old Western ➔ Surf ➔ Mexican / Ranchera </h4>
 <ul>
-<li>  <strong><em>Forensic Note:</strong></li> Establishes an immediate acoustic-to-twang foundation, pivoting seamlessly from brisk Quebecois folk strumming into dusty Western gallops, reverb-drenched Surf runs, and crisp Ranchera cadence without dropping a single beat—conjuring the vivid image of a <strong><em>Mexican cowboy in full uniform surfing a wave.</em></strong></li>
+<li>  <strong><em>Forensic Note:</em></strong> Establishes an immediate acoustic-to-twang foundation, pivoting seamlessly from brisk Quebecois folk strumming into dusty Western gallops, reverb-drenched Surf runs, and crisp Ranchera cadence without dropping a single beat—conjuring the vivid image of a <strong><em>Mexican cowboy in full uniform surfing a wave.</em></strong></li>
 </ul>
 
 <h4> Movement II — The Rhythmic & Hypnotic Metric Shift (Genres 6–10):
