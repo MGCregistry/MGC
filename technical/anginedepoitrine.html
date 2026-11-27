@@ -14,14 +14,16 @@ body {
     overflow-x: hidden;
 }
 
+html { background-color: #000000; }
+body { background: transparent; color: #ffffff; margin: 0; padding: 0; overflow-x: hidden; }
 body::before {
     content: "";
-    position: relative; z-index: 1;
+    position: fixed;
     top: -30%;
     left: -25%;
     width: 150%;
     height: 150%;
-    z-index: -1;
+    z-index: 0;
     pointer-events: none;
     background:
         conic-gradient(from 155deg at 25% 0%, transparent 0deg, rgba(0, 240, 255, 0.16) 10deg, transparent 22deg),
@@ -29,6 +31,7 @@ body::before {
         conic-gradient(from 175deg at 50% 0%, transparent 0deg, rgba(255, 215, 0, 0.12) 8deg, transparent 18deg);
     animation: concertBeams 6s ease-in-out infinite alternate;
 }
+.vault-container { position: relative; z-index: 1; max-width: 450px; margin: 40px auto; padding: 0 20px; }
 
 @keyframes concertBeams {
     0% { transform: rotate(-7deg) scale(1.05); }
@@ -147,7 +150,7 @@ em {
 <li><strong>PRESIDING:</strong> Judge Mina, Chief Grader MGC & The High Court Technical Bench            </li>
 </ul>
 <div style="text-align: center; margin: 28px auto; box-sizing: border-box; width: 100%;">
-<a href="https://youtube.com" target="_blank" rel="noopener noreferrer" style="
+<a href="https://m.youtube.com/watch?v=NRe5EO9F_G4&amp;ra=m&amp;t=2856" target="_blank" rel="noopener noreferrer" style="
 white-space: nowrap !important;
 line-height: 1 !important;
 background: linear-gradient(135deg, #000000 0%, #1D4ED8 30%, #9333EA 58%, #DC2626 82%, #E0BC00 100%) !important;
@@ -168,7 +171,7 @@ text-align: center;
 box-shadow: 0 0 25px rgba(147, 51, 234, 0.45), 0 4px 15px rgba(0, 0, 0, 0.6);
 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.85);
 ">
-🎬 WATCH "UTZP" LIVE (47:36 TIMESTAMP)
+🎬 LIVE "UTZP" (47:36 TIMESTAMP)
 </a>
 </div>
 
@@ -240,7 +243,7 @@ Dynamic Structural Deceleration ➔ Funk ➔ Jazz ➔ Soul</h4>
 </div>
 <p style="text-align: center; font-size: 14px; color: #9ca3af; margin-top: 15px;">• © 2026 MOVIE GRADING CONSENSUS. All Sovereign Rights Reserved.</p>
   <p style="text-align: center; margin-top: 8px;">
-  <a href="https://mgcmovies.com" style="color: #50CC7A; text-decoration: none; font-weight: bold; font-size: 14px; letter-spacing: 0.05em;">mgcmovies.com</a>
+  <a href="https://mgcmovies.com" style="color: #FFD700; text-decoration: none; font-weight: bold; font-size: 14px; letter-spacing: 0.05em;">mgcmovies.com</a>
 </p>
 </div>
 </body>
