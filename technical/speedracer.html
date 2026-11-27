@@ -44,11 +44,11 @@ h4 {
     margin-top: 30px;
 }
 p, li, strong, em {
-    background: linear-gradient(210deg, #FF0055, #FF8800, #FFE600, #00FF88, #00F0FF, #9D00FF, #FF0055);
+    background: linear-gradient(225deg, #FF0055, #FF8800, #FFE600, #00FF88, #00F0FF, #9D00FF, #FF0055);
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: srBodyDiagonal 3s linear infinite;
+    animation: srBodyDiagonal 3s linear infinite alternate;
 }
 p {
     font-size: 19px;
@@ -85,18 +85,18 @@ strong {
 }
 .vault-photo {
     width: 100%;
-    border: 2px solid #FF0000;
+    border: 2px solid #00F0FF;
     border-radius: 6px;
     background-color: #111111;
     box-shadow: 0 0 18px rgba(0, 240, 255, 0.2);
 }
 @keyframes srHeaderWaterfall {
     0% { background-position: center 0%; }
-    100% { background-position: center 300%; }
+    100% { background-position: center 200%; }
 }
 @keyframes srBodyDiagonal {
-    0% { background-position: 200% 0%; }
-    100% { background-position: 0% 200%; }
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
 }
 </style>
 </head>
